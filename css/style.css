@@ -1,225 +1,399 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0b1 | 201101 
-   NOTE: WORK IN PROGRESS
-   USE WITH CAUTION AND TEST WITH ABANDON */
- 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-    font: medium 'Arial', Verdana;
-    color: #1c1c1c;
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
- 
-/* remember to highlight inserts somehow! */
-ins {
-    text-decoration: none;
-}
-del {
-    text-decoration: line-through;
-}
- 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+#outline {
+  width: 100%;
+  height: 100%;
+/*   border: 5px solid rgba(0,0,0,1); */
+  display: flex;
+  flex-direction: column;
+  
+  background-image:
+    radial-gradient(
+      rgba(245,245,245,0.25),
+      rgba(0,30,30,0.4)
+    );
 }
 
-/* - - - end of reset - - - */
-
-body {
-    font: medium 'Verdana', Arial;
-    color: #1c1c1c;
+/* - v - DROPDOWN MENU - v -  */
+.header {
+/*   background-color: TBC */
+  position: fixed;
+  box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+/*   position: relative; */
+  width: 100%;
+  z-index: 3;
 }
  
-p,
-ul {
-    margin: 0 0 1.5em;
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.4);
 }
  
-ul {
-    list-style: disc;
-    padding: 0 0 0 20px;
+.header li a {
+  display: block;
+  padding: 20px 20px;
+  border: 3px solid rgba(0,0,0,0.2);
+  text-decoration: none;
 }
  
-a {
-    color: #1D745A;
+.header li a:hover {
+  background-color: rgba(255,255,255,0.1);
 }
  
-h1 {
- 
-}
- 
-h2 {
-    font-family: 'Verdana', Arial;
-    font-size: x-large;
-    line-height: 1.4em;
-    margin: 0 0 .4em;
-    font-weight: bold;
-}
- 
-/*layout*/
- 
-.wrapper {
-}
- 
-article {
-    border-bottom: 1px solid #d8d8d8;
-    padding: 10px 20px 0 20px;
-    margin: 10px 0;
-}
- 
-/*header*/
- 
-#header {
-    background: #1c1c1c;
-    padding: 15px 20px;
-}
- 
-        /*shorter clearfix http://nicolasgallagher.com/micro-clearfix-hack/*/
-#header:before,
-#header:after {
-  content:"";
-  display:table;
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
 }
 
-#header:after {
-  clear:both;
-}
+/* --hide dropdown as default --*/
 
-/* For IE 6/7 (trigger hasLayout) */
-#header {
-  zoom:1;
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
 }
  
-h1.logo a {
-    color: #d8d8d8;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 20px;
-    line-height: 22px;
+.header .menu-icon .navicon {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+  
+}
+ 
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: #333;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+ 
+.header .menu-icon .navicon:before {
+  top: 5px;
+}
+ 
+.header .menu-icon .navicon:after {
+  top: -5px;
+}
+
+/* add the icon and menu animations when the checkbox is clicked */
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  right: 10px;
+  user-select: none;
+}
+ 
+.header .menu-icon .navicon {
+  background: white;
+  display: block;
+  height: 2px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 18px;
+}
+ 
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+  background: white;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+ 
+.header .menu-icon .navicon:before {
+  top: -5px;
+}
+ 
+.header .menu-icon .navicon:after {
+  top: 5px;
+}
+
+/*  */
+
+.header .menu-btn {
+  display: none;
+}
+ 
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+ 
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+ 
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+ 
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+ 
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+/* add responsive css to show the horizontal menu items for larger browser widths by default */
+
+@media (min-width: 48em) {
+  .header li {
     float: left;
-    letter-spacing: 0.2em;
-}
- 
-a.to_nav {
+  }
+  .header li a {
+    padding: 20px 30px;
+  }
+  .header .menu {
+    clear: none;
     float: right;
-    color: #fff;
-    background: #4e4e4e;
-    text-decoration: none;
-    padding: 0 10px;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 22px;
-    height: 22px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
- 
-a.to_nav:hover,
-a.to_nav:focus {
-    color: #1c1c1c;
-    background: #ccc;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
 }
 
-/*navigation*/ 
- 
-#primary_nav ul {
-    list-style: none;
-    background: #1c1c1c;
-    padding: 5px 0;
+/* - ^ - DROPDOWN MENU - ^ -  */
+
+
+a, p, h1, h2, h3 {
+  font-family: Lucida Grande;
+  color: white;
+
 }
- 
-#primary_nav li a {
-    display: block;
-    padding: 0 20px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    letter-spacing: 0.1em;
-    line-height: 2em;
-    height: 2em;
-    border-bottom: 1px solid #383838;
-}
- 
-#primary_nav li:last-child a {
-    border-bottom: none;
-}
- 
-#primary_nav li a:hover,
-#primary_nav li a:focus {
-    color: #ccc;
-    background: #1c1c1c;
-}
- 
-/*footer*/
- 
-#footer {
-    font-size: medium;
+body {
+  background-color: rgba(0,20,50,0.5); 
+
 }
 
-/*end of nav settings*/
-/*initial layout indicators*/
+.text-center {
+  text-align: center;
+}
+
+.header {
+/*   border: 3px solid red; */
+  background-color: rgba(0,0,0,0.3)
+}
+
+#left {
+/*   border: 3px solid blue; */
+  flex: 1;
+}
+
+#right {
+/*   border: 3px solid red; */
+  flex: 1;
+}
+
 #wrapper {
-  background-color: lightGrey
+/*   border: solid 3px grey; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
-#header {
-  background: red;
-  padding: 15px 20px;
+#sections {
+/*   border: 3px solid orange; */
+  flex: 9;
+  display: flex;
+  flex-direction: column;
 }
 
+
+
+
+/* - - v - - ABOUT LAYOUT - - v - -  */
 #about {
-  background-color: yellow;
+  margin-top: 58px;
+/*   border: 3px solid yellow; */
+  padding: 25px 5px 25px 5px;
 }
 
-#portfolio {
-  background-color: pink;
+#about-wrapper {
+/*   border: 3px solid grey; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
+
+#profile-pic {
+/*   border: 3px solid purple; */
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 5px;
+  
+}
+
+#profile-pic img {
+  position: relative;
+  right: 25px;
+  width: 160%;
+  height: auto;
+}
+
+#intro {
+/*   border: 3px solid orange; */
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  max-width: 450px;
+  text-align: center;
+  
+/*   flex:0.5; */
+}
+
+/* - - ^ - - ABOUT LAYOUT - - ^ - -  */
+
+
+/* - - v - - PORTFOLIO LAYOUT - - v - -  */
+#portfolio {
+/*   border: 3px solid pink; */
+}
+
+#portfolio-wrapper {
+  padding: 25px 10px 25px 10px;
+  display: flex;
+  flex-wrap: wrap;
+/*   border: 3px solid white; */
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.portfolio-pic {
+  border: 6px solid rgba(0,0,0,0.3);
+/*   background-color: rgba(255,0,0,0.3); */
+  
+  width: 290px;
+  height: auto;
+  margin: 10px;
+  max-width: 290px;
+  max-height: 160px;
+  overflow: hidden;
+  
+}
+
+.portfolio-pic img{
+  width: 100%;
+  height: 100%;
+    
+}
+
+/* - - ^ - - PORTFOLIO LAYOUT - - ^ - -  */
 
 #contact {
-  background-color: green;
+/*   border: 3px solid green; */
 }
 
-/*end of initial layout indicators*/
+
+@media all and (max-width: 850px) {
+  #left, #right {
+    display: none;
+  }
+  .portfolio-pic {
+  margin: 10px;
+  }
+}
+
+@media all and (max-width: 345px) {
+  #portfolio-wrapper {
+    justify-content: center;
+  }
+  
+  .portfolio-pic {
+    width: 100%;
+/*     margin: 0; */
+  }
+}
+
+/* - - v - - CONTACT LAYOUT - - v - -  */
+#contact-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin: 10px;
+}
+
+#socials-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  
+}
+
+#socials-wrapper a {
+  text-decoration: none;
+  
+}
+.social-button{
+
+  background-color: rgba(255,255,255,0.5);
+  color: black;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.35s ease-in-out;
+  margin: 2px;
+}
+
+.social-button:hover {
+  background-color: rgba(0,0,0,0.3);
+  color: white;
+  transition: background-color 0.35s ;
+  transition: color 0.35s ease-in-out;
+
+}
+
+/* #form-wrapper {
+  padding: 15px;
+  border: 3px solid green;
+  justify-content: center;
+} */
+
+/* #form-wrapper input {
+  max-width: 40%;
+} */
+
+
+/* - - ^ - - CONTACT LAYOUT - - ^ - -  */
+
+#footer {
+/*   border: 3px white solid; */
+  min-height: 20px;
+}

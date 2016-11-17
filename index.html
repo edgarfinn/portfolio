@@ -3,41 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <title>Build a personal portfolio page</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
 
-  
-  
       <link rel="stylesheet" href="css/style.css">
 
   
 </head>
 
 <body>
-  <div id="wrapper">
-<div id="header">
-  <h1 class="logo"><a href="">Nav href?</a></h1>
-  <a class="to_nav" href="#primary_nav">Menu</a>
+  <div id="outline">
+<header class="header">
+  <input class="menu-btn" type="checkbox" id="menu-btn" />
+  <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+  <ul class="menu">
+    <li><a href="#about" onclick="uncheck()">About</a></li>
+    <li><a href="#portfolio" onclick="uncheck()">Portfolio</a></li>
+    <li><a href="#contact" onclick="uncheck()">Contact</a></li>
+  </ul>
+</header>
+
+<div id="wrapper" onclick="uncheck()">
+  <div id="left"></div>
+  <div id="sections">
+    <div id="about">
+      <div>
+        <h1 class="text-center">About</h1>
+        <div id="about-wrapper">
+          <div id="profile-pic">
+            <img src="https://dl.dropboxusercontent.com/u/5038771/edgardewsbery_picture_of_edgar_in_sunglasses_at_london_southbank.jpg" alt="Edgar Dewsbery profile picture" />
+          </div>
+          <div id="intro"><p>Edgar Dewsbery: Full-stack web developer and world-renowned vibe consultant</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div id="portfolio">
+      <div>
+        <h1 class="text-center">Portfolio</h1>
+        <div id="portfolio-wrapper">
+          <div class="portfolio-pic">
+            <img src="https://dl.dropboxusercontent.com/u/5038771/LondonFreeWorkSpaces_Thumbnale.png" alt="London free work space thumbnail" />
+          </div>
+          <div class="portfolio-pic">
+            <img src="https://dl.dropboxusercontent.com/u/5038771/SixtoRodriguezTribute_Thumbnale.png" alt="rodriguez tribute page thumbnail" />
+          </div>
+          <div class="portfolio-pic">
+            <img src="https://dl.dropboxusercontent.com/u/5038771/randomquotemachine.png" alt="random quote machine thumbnail"/>
+          </div>
+          <div class="portfolio-pic">
+            <img src="https://dl.dropboxusercontent.com/u/5038771/weatherappthumbnail.png" alt="weather app thumbnail" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="contact">
+      <div>
+        <h1 class="text-center">Contact</h1>
+      </div>
+      <div id="contact-wrapper">
+        <div id="email-me"><p>Get in touch:<p></div>
+      <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">edgar@emailexample.com</a>
+        <div id="socials-wrapper">
+          <a class="twitter-follow-button" href="https://twitter.com/vibeconsultant" target="_blank">
+            <div class="social-button">
+              <i class="fa fa-twitter fa-lg" aria-hidden="true">
+              </i>
+            </div>
+          </a>
+          <a class="github-follow-button" href="https://github.com/edgarfinn" target="_blank">
+            <div class="social-button">
+              <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+              </i>
+            </div>
+          </a>
+          <a class="soundcloud-follow-button" href="https://soundcloud.com/edgar-finn" target="_blank">
+              <div class="social-button">
+                <i class="fa fa-soundcloud fa-lg" aria-hidden="true"></i>
+                </i>
+              </div>
+          </a>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  <div id="right">Right</div>
+  
 </div>
-<div id="about" name="about">
-  <h2 class="text-center">About</h2>
-</div>
-<div id="portfolio" name="portfolio">
-    <h2 class="text-center">Portfolio</h2>
-</div>
-<div id="contact" name="contact">
-    <h2 class="text-center">Contact</h2>
-</div>
-<div id="footer">
-  <nav id="primary_nav">        
-    <ul>
-        <li><a href="#about">About</a></li>     
-        <li><a href="portfolio">Portfolio</a></li>
-        <li><a href="contact">Contact</a></li>
-        <li><a href="top">Top</a></li>
-    </ul>
-</nav></div>
+<div id="footer"></div>
 </div>
   
-  
+    <script src="js/index.js"></script>
+
 </body>
 </html>
