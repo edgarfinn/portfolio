@@ -6,8 +6,9 @@
 
 
   <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="css/style.css">
+
 
 </head>
 
@@ -17,9 +18,9 @@
   <input class="menu-btn" type="checkbox" id="menu-btn" />
   <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
   <ul class="menu">
-    <li><a href="#about" onclick="uncheck()">About</a></li>
-    <li><a href="#portfolio" onclick="uncheck()">Portfolio</a></li>
-    <li><a href="#contact" onclick="uncheck()">Contact</a></li>
+    <li><a href="#about-anchor" onclick="uncheck()">About</a></li>
+    <li><a href="#portfolio-anchor" onclick="uncheck()">Portfolio</a></li>
+    <li><a href="#contact-anchor" onclick="uncheck()">Contact</a></li>
   </ul>
 </header>
 
@@ -28,7 +29,7 @@
   <div id="sections">
     <div id="about">
       <div>
-        <h1 class="text-center">About</h1>
+        <h1 class="text-center" id="about-anchor">About</h1>
         <div id="about-wrapper">
           <div id="profile-pic">
             <img src="https://dl.dropboxusercontent.com/u/5038771/edgardewsbery_picture_of_edgar_in_sunglasses_at_london_southbank.jpg" alt="Edgar Dewsbery profile picture" />
@@ -42,7 +43,7 @@
 
     <div id="portfolio">
       <div>
-        <h1 class="text-center">Portfolio</h1>
+        <h1 class="text-center" id="portfolio-anchor">Portfolio</h1>
         <div id="portfolio-wrapper">
           <div class="portfolio-pic">
             <img src="https://dl.dropboxusercontent.com/u/5038771/LondonFreeWorkSpaces_Thumbnale.png" alt="London free work space thumbnail" />
@@ -61,7 +62,7 @@
     </div>
     <div id="contact">
       <div>
-        <h1 class="text-center">Contact</h1>
+        <h1 class="text-center" id="contact-anchor">Contact</h1>
       </div>
       <div id="contact-wrapper">
         <div id="email-me"><p>Get in touch:<p></div>
